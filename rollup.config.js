@@ -27,6 +27,9 @@ export default {
             assets: ["src/assets/images"],
         }),
         postcss({
+            config: {
+                path: "postcss.config.js",
+            },
             plugins: [require("autoprefixer")],
             minimize: true,
             sourceMap: true,

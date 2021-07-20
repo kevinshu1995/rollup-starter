@@ -1,5 +1,5 @@
 import update from "./assets/js/update.js";
-import "./assets/style/all.scss";
+import "./assets/style/all.css";
 
 // even though Rollup is bundling all your files together, errors and
 // logs will still point to your original source modules
