@@ -4,6 +4,7 @@ import { terser } from "rollup-plugin-terser";
 import emitEJS from "rollup-plugin-emit-ejs";
 import clear from "rollup-plugin-clear";
 import copy from "rollup-plugin-copy-assets";
+import postcss from "rollup-plugin-postcss";
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
@@ -15,6 +16,7 @@ export default {
         file: "public/bundle.js",
         format: "iife", // immediately-invoked function expression — suitable for <script> tags
         sourcemap: true,
+        assetFileNames: "[name]-[hash][extname]",
     },
     plugins: [
         clear({
@@ -23,6 +25,11 @@ export default {
         }),
         copy({
             assets: ["src/assets/images"],
+        }),
+        postcss({
+            plugins: [require("autoprefixer")],
+            minimize: true,
+            sourceMap: true,
         }),
         emitEJS({
             src: "src",

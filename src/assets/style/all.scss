@@ -1,0 +1,11 @@
+body {
+    background: #333;
+}
+
+.flex {
+    display: flex;
+}
+
+::placeholder {
+    color: gray;
+}
